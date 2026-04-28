@@ -1,4 +1,7 @@
 import profile from '../assets/profile.jpg';
+import snakeImg from '../assets/snakegame.png';
+import mazeImg from '../assets/mazeGame.png';
+import portfolioImg from '../assets/portfolio.png';
 
 function Home() {
   return (
@@ -29,19 +32,22 @@ function Home() {
         <h2>Projects</h2>
         <div className="projects-grid">
           <ProjectCard
-            title="Forest Survival Adventure"
-            desc="Developed a 2D survival game using HTML5 Canvas and JavaScript featuring player movement, resource collection, and interactive gameplay mechanics."
-            link="https://github.com/AbdulMajid08/ForestSurvivalAdventure"
+            title="Maze Survival Adventure"
+            desc="Developed a 2D Maze survival game using HTML5 Canvas and JavaScript featuring player movement, resource collection, and interactive gameplay mechanics."
+            link="https://github.com/AbdulMajid08/MazeSurvivalAdventure"
+            image={mazeImg}
           />
           <ProjectCard
             title="Snake Game"
             desc="Built a classic Snake game using Python with real-time movement, collision detection, and score tracking to enhance gameplay experience."
             link="https://github.com/AbdulMajid08/SnakeGame"
+            image={snakeImg}
           />
           <ProjectCard
             title="Portfolio Website"
             desc="Designed and developed a responsive portfolio website using React and Node.js to showcase projects, skills, and experience with modern UI and routing."
-            link=""
+            link="https://github.com/AbdulMajid08/my-portfolio"
+            image={portfolioImg}
           />
         </div>
       </section>
@@ -49,18 +55,21 @@ function Home() {
       {/* Contact Section */}
       <section id="contact" className="section">
         <h2>Contact</h2>
-        <p>Email: abdul053@csusm.edu</p>
-        <p>GitHub: github.com/AbdulMajid08</p>
+        <p>Email: <a href="mailto:abdul053@csusm.edu?subject=Hello Abdul&body=Dear Abdul,">abdul053@csusm.edu</a></p>
+        <p>GitHub: <a href="https://github.com/AbdulMajid08" target="_blank" rel="noopener noreferrer">github.com/AbdulMajid08</a></p>
       </section>
     </main>
   );
 }
 
-function ProjectCard({ title, desc, link }) {
+function ProjectCard({ title, desc, link, image }) {
   return (
     <div className="project-card">
       <h3>{title}</h3>
       <p>{desc}</p>
+
+      {image && <img src={image} alt={title} className="project-image" />}
+
       {link && (
         <a href={link} target="_blank" rel="noopener noreferrer">
           View Project
